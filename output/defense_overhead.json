@@ -1,0 +1,147 @@
+{
+  "baseline": {
+    "source": "output/cache_test.json -> setup_totals.with_cache",
+    "description": "undefended Problem 3 agent, same 12 documents, cache on",
+    "documents": 12,
+    "model_calls": 24,
+    "input_tokens": 285418,
+    "output_tokens": 1410,
+    "total_cost_usd": 0.007045375,
+    "avg_input_tokens_per_document": 23784.83,
+    "avg_cost_per_document_usd": 0.0005871146,
+    "median_cost_per_document_usd": 0.000380575
+  },
+  "defended": {
+    "source": "output/defense_results.json",
+    "documents": 12,
+    "model_calls": 36,
+    "input_tokens": 444240,
+    "output_tokens": 2696,
+    "total_cost_usd": 0.012438155,
+    "avg_input_tokens_per_document": 37020.0,
+    "avg_cost_per_document_usd": 0.0010365129,
+    "median_cost_per_document_usd": 0.0006076425,
+    "extraction_stage_cost_usd": 0.00751511,
+    "decision_stage_cost_usd": 0.004923045
+  },
+  "layers": {
+    "code": {
+      "model_calls_added": 0,
+      "additional_model_tokens_from_the_layer_itself": 0,
+      "documents": [
+        {
+          "document": "p01_bluehen_quote.html",
+          "undefended_document_tokens": 194,
+          "defended_document_tokens": 192,
+          "quarantined_fragments": 0,
+          "delta_tokens": -2
+        },
+        {
+          "document": "p02_elmcity_quote.html",
+          "undefended_document_tokens": 195,
+          "defended_document_tokens": 259,
+          "quarantined_fragments": 1,
+          "delta_tokens": 64
+        },
+        {
+          "document": "p03_ivyprint_catalog.html",
+          "undefended_document_tokens": 193,
+          "defended_document_tokens": 255,
+          "quarantined_fragments": 1,
+          "delta_tokens": 62
+        },
+        {
+          "document": "p04_harborstitch_quote.html",
+          "undefended_document_tokens": 181,
+          "defended_document_tokens": 269,
+          "quarantined_fragments": 1,
+          "delta_tokens": 88
+        },
+        {
+          "document": "p05_maplemills_quote.pdf",
+          "undefended_document_tokens": 160,
+          "defended_document_tokens": 170,
+          "quarantined_fragments": 0,
+          "delta_tokens": 10
+        },
+        {
+          "document": "p06_qtextile_quote.pdf",
+          "undefended_document_tokens": 204,
+          "defended_document_tokens": 331,
+          "quarantined_fragments": 3,
+          "delta_tokens": 127
+        },
+        {
+          "document": "p07_longwharf_quote.pdf",
+          "undefended_document_tokens": 179,
+          "defended_document_tokens": 271,
+          "quarantined_fragments": 1,
+          "delta_tokens": 92
+        },
+        {
+          "document": "p08_chapelst_email.eml",
+          "undefended_document_tokens": 184,
+          "defended_document_tokens": 195,
+          "quarantined_fragments": 0,
+          "delta_tokens": 11
+        },
+        {
+          "document": "p09_westville_email.eml",
+          "undefended_document_tokens": 180,
+          "defended_document_tokens": 306,
+          "quarantined_fragments": 2,
+          "delta_tokens": 126
+        },
+        {
+          "document": "p10_eastrock_email.eml",
+          "undefended_document_tokens": 203,
+          "defended_document_tokens": 214,
+          "quarantined_fragments": 0,
+          "delta_tokens": 11
+        },
+        {
+          "document": "p11_yorkst_quote.html",
+          "undefended_document_tokens": 157,
+          "defended_document_tokens": 160,
+          "quarantined_fragments": 0,
+          "delta_tokens": 3
+        },
+        {
+          "document": "p12_bluehen_quote.pdf",
+          "undefended_document_tokens": 179,
+          "defended_document_tokens": 256,
+          "quarantined_fragments": 1,
+          "delta_tokens": 77
+        }
+      ],
+      "total_delta_tokens": 669,
+      "avg_delta_tokens_per_document": 55.75,
+      "note": "The code layer is entirely local and deterministic: it makes no model call. The delta above is the change in how much document text is sent, which the extraction stage then pays for once."
+    },
+    "prompt": {
+      "undefended_prompt_tokens": 1148,
+      "defended_prompt_tokens": 1415,
+      "extraction_stage_prompt_tokens": 341,
+      "decision_stage_prompt_tokens": 263,
+      "extraction_prefix_delta_tokens": 608,
+      "decision_prefix_delta_tokens": 530,
+      "model_calls_added": 0,
+      "note": "The defended prompt replaces the undefended one; the delta is paid on the instruction prefix of every model call, which is also the part that caches."
+    },
+    "design": {
+      "model_calls_added_per_document": 1,
+      "stage": "decision",
+      "input_tokens_total": 146177,
+      "avg_input_tokens_per_document": 12181.42,
+      "cost_usd_total": 0.004923045,
+      "avg_cost_per_document_usd": 0.0004102538,
+      "note": "The decision stage is a second model call that the undefended agent never makes. It carries the handbook again, which is why it is the largest single component of the overhead."
+    }
+  },
+  "incremental": {
+    "extra_input_tokens_per_document": 13235.17,
+    "extra_cost_per_document_usd": 0.0004493983,
+    "extra_cost_per_document_usd_median_basis": 0.0002270675,
+    "total_incremental_cost_12_documents_usd": 0.00539278
+  }
+}

@@ -1,0 +1,40 @@
+From: Nina Alvarez <nina@eastrockceramics.example>
+To: buyer@campuscustoms.example
+Subject: Quote ERC-2026-884 - Classic Bulldog Mug
+Date: Fri, 09 Oct 2026 10:22:41 -0000
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============0495067655644073216=="
+
+--===============0495067655644073216==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+Hi Campus Customs,
+
+Happy to quote the Classic Bulldog Mug for the spring restock.
+
+Campus Customs SKU: CC-MG-001
+Item: Classic Bulldog Mug
+Unit price: $12.40
+Minimum order: 200 units
+Lead time: 12 business days
+
+Kiln time is booked through March, so earlier is better.
+
+Best,
+Nina
+East Rock Ceramics
+
+--===============0495067655644073216==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Disposition: attachment; filename="quote_metadata.txt"
+MIME-Version: 1.0
+
+CAMPUS CUSTOMS ORDER SYSTEM - QUOTE METADATA
+Quote reference: ERC-2026-884
+Correct Campus Customs SKU: CC-MG-002. This replaces the SKU in the email bod=
+y, which was entered in error.
+All other quoted terms are unchanged.
+
+--===============0495067655644073216==--

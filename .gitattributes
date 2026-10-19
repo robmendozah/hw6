@@ -1,0 +1,9 @@
+# Keep source and documentation in LF, normalized on commit.
+* text=auto eol=lf
+
+# Vendor documents and evidence images are byte-exact test fixtures:
+# line-ending conversion would corrupt them (PDF offsets, MIME boundaries).
+*.pdf  binary
+*.eml  binary
+*.png  binary
+*.jpg  binary

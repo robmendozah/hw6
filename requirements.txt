@@ -1,0 +1,15 @@
+# Agent runtime (Problems 3-8)
+pydantic-ai-slim[openai]==2.54.0   # agent framework; pulls in the openai SDK
+python-dotenv==1.2.4               # loads PORTKEY_API_KEY from .env
+
+# Document readers
+beautifulsoup4==4.15.0             # HTML and HTML email bodies
+pypdf==6.21.1                      # PDF text extraction + content-stream scan
+pdfplumber==0.11.10                # layout-aware PDF reading (the code defense)
+
+# Token counting (Problem 2 handbook estimate, defense-overhead measurement)
+tiktoken==0.14.0
+
+# Rendering evidence images (scripts/render_my_attacks.py, build_report.py)
+pypdfium2==5.14.0
+pillow==13.0.0

@@ -1,0 +1,2677 @@
+{
+  "experiment_id": "p4-cache-20261018T194921Z",
+  "created_utc": "2026-10-18T19:49:21.673713+00:00",
+  "model": "gpt-6-luna",
+  "documents_tested": [
+    "data/practice_docs/p01_bluehen_quote.html",
+    "data/practice_docs/p02_elmcity_quote.html",
+    "data/practice_docs/p03_ivyprint_catalog.html",
+    "data/practice_docs/p04_harborstitch_quote.html",
+    "data/practice_docs/p05_maplemills_quote.pdf",
+    "data/practice_docs/p06_qtextile_quote.pdf",
+    "data/practice_docs/p07_longwharf_quote.pdf",
+    "data/practice_docs/p08_chapelst_email.eml",
+    "data/practice_docs/p09_westville_email.eml",
+    "data/practice_docs/p10_eastrock_email.eml",
+    "data/practice_docs/p11_yorkst_quote.html",
+    "data/practice_docs/p12_bluehen_quote.pdf"
+  ],
+  "conditions": {
+    "with_cache": "Static instructions (prompt + handbook), byte-identical on every model call, with a stable prompt_cache_key 'campus-customs-vendor-desk-v1'.",
+    "without_cache": "Same prompt and handbook, but a unique prompt_cache_key per run and a fresh one-line nonce at the very start of the instruction prefix on every model call, so no prefix can match a cached prefix."
+  },
+  "prices_used": {
+    "input_per_1m": 0.1,
+    "cached_input_per_1m": 0.01,
+    "cache_write_per_1m": 0.125,
+    "output_per_1m": 0.5
+  },
+  "prices_source": "data/prices.json",
+  "validation": {
+    "valid": true,
+    "problems": [],
+    "rule": "A without_cache model call counts only if the API reports cache_read_tokens == 0."
+  },
+  "setup_totals": {
+    "with_cache": {
+      "setup": "with_cache",
+      "documents": 12,
+      "model_calls": 24,
+      "input_tokens": 285418,
+      "cached_input_tokens": 267445,
+      "uncached_input_tokens": 17973,
+      "cache_write_tokens": 14949,
+      "output_tokens": 1410,
+      "total_tokens": 286828,
+      "reasoning_tokens": 0,
+      "cost_usd": {
+        "uncached_input_usd": 0.0017973,
+        "cached_input_usd": 0.00267445,
+        "cache_write_usd": 0.001868625,
+        "output_usd": 0.000705,
+        "total_usd": 0.007045375
+      },
+      "cost_per_document_usd": 0.0005871146
+    },
+    "without_cache": {
+      "setup": "without_cache",
+      "documents": 12,
+      "model_calls": 24,
+      "input_tokens": 285994,
+      "cached_input_tokens": 0,
+      "uncached_input_tokens": 285994,
+      "cache_write_tokens": 282970,
+      "output_tokens": 1374,
+      "total_tokens": 287368,
+      "reasoning_tokens": 0,
+      "cost_usd": {
+        "uncached_input_usd": 0.0285994,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.03537125,
+        "output_usd": 0.000687,
+        "total_usd": 0.06465765
+      },
+      "cost_per_document_usd": 0.0053881375
+    }
+  },
+  "document_totals": {
+    "with_cache": [
+      {
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23791,
+        "cached_input_tokens": 23257,
+        "output_tokens": 124,
+        "total_cost_usd": 0.00038322
+      },
+      {
+        "document": "data/practice_docs/p02_elmcity_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23795,
+        "cached_input_tokens": 23258,
+        "output_tokens": 127,
+        "total_cost_usd": 0.000385405
+      },
+      {
+        "document": "data/practice_docs/p03_ivyprint_catalog.html",
+        "model_calls": 2,
+        "input_tokens": 23793,
+        "cached_input_tokens": 11604,
+        "output_tokens": 104,
+        "total_cost_usd": 0.002879065
+      },
+      {
+        "document": "data/practice_docs/p04_harborstitch_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23787,
+        "cached_input_tokens": 23260,
+        "output_tokens": 128,
+        "total_cost_usd": 0.000383675
+      },
+      {
+        "document": "data/practice_docs/p05_maplemills_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23760,
+        "cached_input_tokens": 23258,
+        "output_tokens": 110,
+        "total_cost_usd": 0.00036903
+      },
+      {
+        "document": "data/practice_docs/p06_qtextile_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23804,
+        "cached_input_tokens": 23258,
+        "output_tokens": 108,
+        "total_cost_usd": 0.00037793
+      },
+      {
+        "document": "data/practice_docs/p07_longwharf_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23779,
+        "cached_input_tokens": 23258,
+        "output_tokens": 112,
+        "total_cost_usd": 0.000374305
+      },
+      {
+        "document": "data/practice_docs/p08_chapelst_email.eml",
+        "model_calls": 2,
+        "input_tokens": 23787,
+        "cached_input_tokens": 23259,
+        "output_tokens": 133,
+        "total_cost_usd": 0.00038639
+      },
+      {
+        "document": "data/practice_docs/p09_westville_email.eml",
+        "model_calls": 2,
+        "input_tokens": 23783,
+        "cached_input_tokens": 23259,
+        "output_tokens": 105,
+        "total_cost_usd": 0.00037149
+      },
+      {
+        "document": "data/practice_docs/p10_eastrock_email.eml",
+        "model_calls": 2,
+        "input_tokens": 23806,
+        "cached_input_tokens": 23259,
+        "output_tokens": 127,
+        "total_cost_usd": 0.000387665
+      },
+      {
+        "document": "data/practice_docs/p11_yorkst_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23757,
+        "cached_input_tokens": 23258,
+        "output_tokens": 113,
+        "total_cost_usd": 0.000369855
+      },
+      {
+        "document": "data/practice_docs/p12_bluehen_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23776,
+        "cached_input_tokens": 23257,
+        "output_tokens": 119,
+        "total_cost_usd": 0.000377345
+      }
+    ],
+    "without_cache": [
+      {
+        "document": "data/practice_docs/p01_bluehen_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23846,
+        "cached_input_tokens": 0,
+        "output_tokens": 122,
+        "total_cost_usd": 0.00539485
+      },
+      {
+        "document": "data/practice_docs/p02_elmcity_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23841,
+        "cached_input_tokens": 0,
+        "output_tokens": 128,
+        "total_cost_usd": 0.005396725
+      },
+      {
+        "document": "data/practice_docs/p03_ivyprint_catalog.html",
+        "model_calls": 2,
+        "input_tokens": 23840,
+        "cached_input_tokens": 0,
+        "output_tokens": 106,
+        "total_cost_usd": 0.0053855
+      },
+      {
+        "document": "data/practice_docs/p04_harborstitch_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23840,
+        "cached_input_tokens": 0,
+        "output_tokens": 127,
+        "total_cost_usd": 0.005396
+      },
+      {
+        "document": "data/practice_docs/p05_maplemills_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23806,
+        "cached_input_tokens": 0,
+        "output_tokens": 111,
+        "total_cost_usd": 0.00538035
+      },
+      {
+        "document": "data/practice_docs/p06_qtextile_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23861,
+        "cached_input_tokens": 0,
+        "output_tokens": 109,
+        "total_cost_usd": 0.005391725
+      },
+      {
+        "document": "data/practice_docs/p07_longwharf_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23820,
+        "cached_input_tokens": 0,
+        "output_tokens": 107,
+        "total_cost_usd": 0.0053815
+      },
+      {
+        "document": "data/practice_docs/p08_chapelst_email.eml",
+        "model_calls": 2,
+        "input_tokens": 23836,
+        "cached_input_tokens": 0,
+        "output_tokens": 107,
+        "total_cost_usd": 0.0053851
+      },
+      {
+        "document": "data/practice_docs/p09_westville_email.eml",
+        "model_calls": 2,
+        "input_tokens": 23828,
+        "cached_input_tokens": 0,
+        "output_tokens": 104,
+        "total_cost_usd": 0.0053818
+      },
+      {
+        "document": "data/practice_docs/p10_eastrock_email.eml",
+        "model_calls": 2,
+        "input_tokens": 23851,
+        "cached_input_tokens": 0,
+        "output_tokens": 123,
+        "total_cost_usd": 0.005396475
+      },
+      {
+        "document": "data/practice_docs/p11_yorkst_quote.html",
+        "model_calls": 2,
+        "input_tokens": 23802,
+        "cached_input_tokens": 0,
+        "output_tokens": 113,
+        "total_cost_usd": 0.00538045
+      },
+      {
+        "document": "data/practice_docs/p12_bluehen_quote.pdf",
+        "model_calls": 2,
+        "input_tokens": 23823,
+        "cached_input_tokens": 0,
+        "output_tokens": 117,
+        "total_cost_usd": 0.005387175
+      }
+    ]
+  },
+  "model_calls": [
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "document_index": 1,
+      "run_id": "run-20261018T194921-a63eb28a",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:22.277729+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR98ASayCANqorNAYYC7B438hAcp",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11779,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 49,
+        "output_tokens": 27,
+        "total_tokens": 11806,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 175,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:46+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.75e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.125e-06,
+        "output_usd": 1.35e-05,
+        "total_usd": 0.000153165,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "document_index": 1,
+      "run_id": "run-20261018T194921-a63eb28a",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:22.550565+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR99XuhEYO9pRF2LiwvXGKfDhDn9",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12012,
+        "cache_read_tokens": 11653,
+        "cache_write_tokens": 233,
+        "output_tokens": 97,
+        "total_tokens": 12109,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 359,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:47+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.59e-05,
+        "cached_input_usd": 0.00011653,
+        "cache_write_usd": 2.9125e-05,
+        "output_usd": 4.85e-05,
+        "total_usd": 0.000230055,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "document_index": 2,
+      "run_id": "run-20261018T194922-b1c78591",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:22.831116+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9BArHAeub2Usa4PpVC0dymQjUo",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11780,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 50,
+        "output_tokens": 28,
+        "total_tokens": 11808,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 176,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:49+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.76e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.25e-06,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00015389,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "document_index": 2,
+      "run_id": "run-20261018T194922-b1c78591",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:23.058011+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9CrCWhoH6lYPElkYPHXhPew7NQ",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12015,
+        "cache_read_tokens": 11654,
+        "cache_write_tokens": 235,
+        "output_tokens": 99,
+        "total_tokens": 12114,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 361,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:50+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.61e-05,
+        "cached_input_usd": 0.00011654,
+        "cache_write_usd": 2.9375e-05,
+        "output_usd": 4.95e-05,
+        "total_usd": 0.000231515,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "document_index": 3,
+      "run_id": "run-20261018T194923-56931029",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:23.362143+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9E1iCioZBgKusyrxpOO59kpv0h",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11780,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 50,
+        "output_tokens": 28,
+        "total_tokens": 11808,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 176,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:52+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.76e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.25e-06,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00015389,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "document_index": 3,
+      "run_id": "run-20261018T194923-56931029",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:23.603178+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9FLKMGuelX1VEi8o950lagdDIk",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12013,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11887,
+        "output_tokens": 76,
+        "total_tokens": 12089,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12013,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:53+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012013,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001485875,
+        "output_usd": 3.8e-05,
+        "total_usd": 0.002725175,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "document_index": 4,
+      "run_id": "run-20261018T194923-23dfc9d0",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:23.960414+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9HzUncYRAClEkDfz3kQ1i5o6UY",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11782,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 52,
+        "output_tokens": 30,
+        "total_tokens": 11812,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 178,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:55+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.78e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.5e-06,
+        "output_usd": 1.5e-05,
+        "total_usd": 0.00015534,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "document_index": 4,
+      "run_id": "run-20261018T194923-23dfc9d0",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:24.320627+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9Ja0wggGwMh0Es9m6B0K8SA1Um",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12005,
+        "cache_read_tokens": 11656,
+        "cache_write_tokens": 223,
+        "output_tokens": 98,
+        "total_tokens": 12103,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 349,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:57+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.49e-05,
+        "cached_input_usd": 0.00011656,
+        "cache_write_usd": 2.7875e-05,
+        "output_usd": 4.9e-05,
+        "total_usd": 0.000228335,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "document_index": 5,
+      "run_id": "run-20261018T194924-5e1007ac",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:24.672664+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9LptpfvadFRgMHnMR75j6W5xtR",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11780,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 50,
+        "output_tokens": 28,
+        "total_tokens": 11808,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 176,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:47:59+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.76e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.25e-06,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00015389,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "document_index": 5,
+      "run_id": "run-20261018T194924-5e1007ac",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:24.899381+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9M0xewdTT6aNSSHzj2Qa9iBUiG",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11980,
+        "cache_read_tokens": 11654,
+        "cache_write_tokens": 200,
+        "output_tokens": 82,
+        "total_tokens": 12062,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 326,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:00+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.26e-05,
+        "cached_input_usd": 0.00011654,
+        "cache_write_usd": 2.5e-05,
+        "output_usd": 4.1e-05,
+        "total_usd": 0.00021514,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "document_index": 6,
+      "run_id": "run-20261018T194924-308eb846",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:25.211661+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9OMgpDERIsNadCPNzy6k3VxifC",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11780,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 50,
+        "output_tokens": 28,
+        "total_tokens": 11808,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 176,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:02+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.76e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.25e-06,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00015389,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "document_index": 6,
+      "run_id": "run-20261018T194924-308eb846",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:25.515392+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9PheDc1hnLezFV7rCq6CmVUAdK",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12024,
+        "cache_read_tokens": 11654,
+        "cache_write_tokens": 244,
+        "output_tokens": 80,
+        "total_tokens": 12104,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 370,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:03+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.7e-05,
+        "cached_input_usd": 0.00011654,
+        "cache_write_usd": 3.05e-05,
+        "output_usd": 4e-05,
+        "total_usd": 0.00022404,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "document_index": 7,
+      "run_id": "run-20261018T194925-d69b9a73",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:25.880862+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9Rudb3hEiNXnLXE5uWutewArhE",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11780,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 50,
+        "output_tokens": 28,
+        "total_tokens": 11808,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 176,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:05+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.76e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.25e-06,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00015389,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "document_index": 7,
+      "run_id": "run-20261018T194925-d69b9a73",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:26.132510+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9SrMOsnlcWKv0r2uZ6vnkLwtZH",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11999,
+        "cache_read_tokens": 11654,
+        "cache_write_tokens": 219,
+        "output_tokens": 84,
+        "total_tokens": 12083,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 345,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:06+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.45e-05,
+        "cached_input_usd": 0.00011654,
+        "cache_write_usd": 2.7375e-05,
+        "output_usd": 4.2e-05,
+        "total_usd": 0.000220415,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "document_index": 8,
+      "run_id": "run-20261018T194926-54adadb0",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:26.465632+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9U2JMn25v5rRqvEhJZFYcHhu2Y",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11781,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 51,
+        "output_tokens": 29,
+        "total_tokens": 11810,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 177,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:08+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.77e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.375e-06,
+        "output_usd": 1.45e-05,
+        "total_usd": 0.000154615,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "document_index": 8,
+      "run_id": "run-20261018T194926-54adadb0",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:26.701619+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9VzbszdpcXF7D1kTiovSP8au5U",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12006,
+        "cache_read_tokens": 11655,
+        "cache_write_tokens": 225,
+        "output_tokens": 104,
+        "total_tokens": 12110,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 351,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:09+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.51e-05,
+        "cached_input_usd": 0.00011655,
+        "cache_write_usd": 2.8125e-05,
+        "output_usd": 5.2e-05,
+        "total_usd": 0.000231775,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "document_index": 9,
+      "run_id": "run-20261018T194926-73d4da90",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:27.089636+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9XfUNu9PFbCZsGUOZDBxLG51a7",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11781,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 51,
+        "output_tokens": 29,
+        "total_tokens": 11810,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 177,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:11+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.77e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.375e-06,
+        "output_usd": 1.45e-05,
+        "total_usd": 0.000154615,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "document_index": 9,
+      "run_id": "run-20261018T194926-73d4da90",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:27.314081+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9ZFNpNNjZ1AAGMJfDohIQ274wW",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12002,
+        "cache_read_tokens": 11655,
+        "cache_write_tokens": 221,
+        "output_tokens": 76,
+        "total_tokens": 12078,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 347,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:13+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.47e-05,
+        "cached_input_usd": 0.00011655,
+        "cache_write_usd": 2.7625e-05,
+        "output_usd": 3.8e-05,
+        "total_usd": 0.000216875,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "document_index": 10,
+      "run_id": "run-20261018T194927-5c14dcc4",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:27.685044+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9be8IJ2yUMSiwtIhexdJjl6VpK",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11781,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 51,
+        "output_tokens": 29,
+        "total_tokens": 11810,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 177,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:15+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.77e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.375e-06,
+        "output_usd": 1.45e-05,
+        "total_usd": 0.000154615,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "document_index": 10,
+      "run_id": "run-20261018T194927-5c14dcc4",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:27.892871+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9cSYgPwe7MM6fULAUJFIEQqpP2",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12025,
+        "cache_read_tokens": 11655,
+        "cache_write_tokens": 244,
+        "output_tokens": 98,
+        "total_tokens": 12123,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 370,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:16+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.7e-05,
+        "cached_input_usd": 0.00011655,
+        "cache_write_usd": 3.05e-05,
+        "output_usd": 4.9e-05,
+        "total_usd": 0.00023305,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "document_index": 11,
+      "run_id": "run-20261018T194927-ebae2eec",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:28.253972+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9dRSrmw0igrIhjvg5YDLvnh4jZ",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11780,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 50,
+        "output_tokens": 28,
+        "total_tokens": 11808,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 176,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:17+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.76e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.25e-06,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00015389,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "document_index": 11,
+      "run_id": "run-20261018T194927-ebae2eec",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:28.473065+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9f7UIY4mgRtKDzWFyIyURKGyyi",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11977,
+        "cache_read_tokens": 11654,
+        "cache_write_tokens": 197,
+        "output_tokens": 85,
+        "total_tokens": 12062,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 323,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:19+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.23e-05,
+        "cached_input_usd": 0.00011654,
+        "cache_write_usd": 2.4625e-05,
+        "output_usd": 4.25e-05,
+        "total_usd": 0.000215965,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "document_index": 12,
+      "run_id": "run-20261018T194928-0123b2f5",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:28.826674+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9hIjE7u0RxVYkNWSQRSTVdt3i3",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11779,
+        "cache_read_tokens": 11604,
+        "cache_write_tokens": 49,
+        "output_tokens": 27,
+        "total_tokens": 11806,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 175,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:21+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 1.75e-05,
+        "cached_input_usd": 0.00011604,
+        "cache_write_usd": 6.125e-06,
+        "output_usd": 1.35e-05,
+        "total_usd": 0.000153165,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "with_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "document_index": 12,
+      "run_id": "run-20261018T194928-0123b2f5",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:29.061031+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaR9iqjNPIvc4BQYvYTRHTekInrgO",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11997,
+        "cache_read_tokens": 11653,
+        "cache_write_tokens": 218,
+        "output_tokens": 92,
+        "total_tokens": 12089,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 344,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:48:22+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 3.44e-05,
+        "cached_input_usd": 0.00011653,
+        "cache_write_usd": 2.725e-05,
+        "output_usd": 4.6e-05,
+        "total_usd": 0.00022418,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "document_index": 1,
+      "run_id": "run-20261018T194929-92f6e67c",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:30.507533+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAnP7nHEdNd0PqNzEM8JkPphI9U",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11806,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11680,
+        "output_tokens": 27,
+        "total_tokens": 11833,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11806,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:29+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011806,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00146,
+        "output_usd": 1.35e-05,
+        "total_usd": 0.0026541,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p01_bluehen_quote.html",
+      "document_index": 1,
+      "run_id": "run-20261018T194929-92f6e67c",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:32.055489+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAoMOqUXVnFRaDF1NJiUNH2fhOG",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12040,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11914,
+        "output_tokens": 95,
+        "total_tokens": 12135,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12040,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:30+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.001204,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00148925,
+        "output_usd": 4.75e-05,
+        "total_usd": 0.00274075,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "document_index": 2,
+      "run_id": "run-20261018T194932-8ce855ba",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:33.939386+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAqf3JLejdzBKufxBIdubTOmvbi",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11803,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11677,
+        "output_tokens": 28,
+        "total_tokens": 11831,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11803,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:32+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011803,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001459625,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.002653925,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p02_elmcity_quote.html",
+      "document_index": 2,
+      "run_id": "run-20261018T194932-8ce855ba",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:35.418469+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRArVrPgsZj5ROKHnizzvBiy9ZZy",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12038,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11912,
+        "output_tokens": 100,
+        "total_tokens": 12138,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12038,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:33+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012038,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001489,
+        "output_usd": 5e-05,
+        "total_usd": 0.0027428,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "document_index": 3,
+      "run_id": "run-20261018T194935-81121829",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:36.447305+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAtBWbrV46J4lgMBZpqU8rfTIlx",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11807,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11681,
+        "output_tokens": 28,
+        "total_tokens": 11835,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11807,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:35+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011807,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001460125,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.002654825,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p03_ivyprint_catalog.html",
+      "document_index": 3,
+      "run_id": "run-20261018T194935-81121829",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:38.323735+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAu8MXLXVEahA6UWsWar7ToEVOX",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12033,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11907,
+        "output_tokens": 78,
+        "total_tokens": 12111,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12033,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:36+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012033,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001488375,
+        "output_usd": 3.9e-05,
+        "total_usd": 0.002730675,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "document_index": 4,
+      "run_id": "run-20261018T194938-ff9487ca",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:41.248114+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAwrMDS7duklGrhPhRZ3OephZDN",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11809,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11683,
+        "output_tokens": 30,
+        "total_tokens": 11839,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11809,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:38+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011809,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001460375,
+        "output_usd": 1.5e-05,
+        "total_usd": 0.002656275,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p04_harborstitch_quote.html",
+      "document_index": 4,
+      "run_id": "run-20261018T194938-ff9487ca",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:42.986281+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRAzPJijFlgkqB9LnP7WjvGy2yXR",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12031,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11905,
+        "output_tokens": 97,
+        "total_tokens": 12128,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12031,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:41+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012031,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001488125,
+        "output_usd": 4.85e-05,
+        "total_usd": 0.002739725,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "document_index": 5,
+      "run_id": "run-20261018T194943-795999ef",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:45.544126+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRB1cgOalMvwlgtYsT8FZPXfclRo",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11802,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11676,
+        "output_tokens": 28,
+        "total_tokens": 11830,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11802,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:43+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011802,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0014595,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.0026537,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p05_maplemills_quote.pdf",
+      "document_index": 5,
+      "run_id": "run-20261018T194943-795999ef",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:46.990691+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRB3SOnLHBxzXFG6VaLCqtTCWxJT",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12004,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11878,
+        "output_tokens": 83,
+        "total_tokens": 12087,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12004,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:45+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012004,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00148475,
+        "output_usd": 4.15e-05,
+        "total_usd": 0.00272665,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "document_index": 6,
+      "run_id": "run-20261018T194947-8753995e",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:50.284376+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRB633iP4SATELLtN0mFNTDlBDAP",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11808,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11682,
+        "output_tokens": 28,
+        "total_tokens": 11836,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11808,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:48+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011808,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00146025,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00265505,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p06_qtextile_quote.pdf",
+      "document_index": 6,
+      "run_id": "run-20261018T194947-8753995e",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:51.829540+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRB8Eqi21ROs6nLg8Bk0rwRSualV",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12053,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11927,
+        "output_tokens": 81,
+        "total_tokens": 12134,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12053,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:50+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012053,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001490875,
+        "output_usd": 4.05e-05,
+        "total_usd": 0.002736675,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "document_index": 7,
+      "run_id": "run-20261018T194951-f0e91059",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:53.614297+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBAq7nB3Ryd7TVbhPCMYqVeUzSh",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11800,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11674,
+        "output_tokens": 28,
+        "total_tokens": 11828,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11800,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:52+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.00118,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00145925,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.00265325,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p07_longwharf_quote.pdf",
+      "document_index": 7,
+      "run_id": "run-20261018T194951-f0e91059",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:56.733472+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBC4tKqyuoc2rFQaqY15YzlB7pN",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12020,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11894,
+        "output_tokens": 79,
+        "total_tokens": 12099,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12020,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:54+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.001202,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00148675,
+        "output_usd": 3.95e-05,
+        "total_usd": 0.00272825,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "document_index": 8,
+      "run_id": "run-20261018T194956-32701edf",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:49:58.928525+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBF6tBsfivYHlKjDX1uk7H2JWMN",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11805,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11679,
+        "output_tokens": 29,
+        "total_tokens": 11834,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11805,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:57+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011805,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001459875,
+        "output_usd": 1.45e-05,
+        "total_usd": 0.002654875,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p08_chapelst_email.eml",
+      "document_index": 8,
+      "run_id": "run-20261018T194956-32701edf",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:00.581004+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBGKjCxi656NCikEayhtvWYyXJD",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12031,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11905,
+        "output_tokens": 78,
+        "total_tokens": 12109,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12031,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:49:58+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012031,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001488125,
+        "output_usd": 3.9e-05,
+        "total_usd": 0.002730225,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "document_index": 9,
+      "run_id": "run-20261018T195000-e4505b4f",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:02.421921+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBIiB6BQUP2CeSQBvoXzggbqaTy",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11804,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11678,
+        "output_tokens": 29,
+        "total_tokens": 11833,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11804,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:00+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011804,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00145975,
+        "output_usd": 1.45e-05,
+        "total_usd": 0.00265465,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p09_westville_email.eml",
+      "document_index": 9,
+      "run_id": "run-20261018T195000-e4505b4f",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:03.970068+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBKL8tVx57z0nYCJGV4ki00kVU7",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12024,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11898,
+        "output_tokens": 75,
+        "total_tokens": 12099,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12024,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:02+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012024,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00148725,
+        "output_usd": 3.75e-05,
+        "total_usd": 0.00272715,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "document_index": 10,
+      "run_id": "run-20261018T195004-f56d3002",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:05.696083+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBM7Sn3BqujaUhs3vSrMaxB1ZWb",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11802,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11676,
+        "output_tokens": 29,
+        "total_tokens": 11831,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11802,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:04+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011802,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0014595,
+        "output_usd": 1.45e-05,
+        "total_usd": 0.0026542,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p10_eastrock_email.eml",
+      "document_index": 10,
+      "run_id": "run-20261018T195004-f56d3002",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:07.386246+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBNxNjNE16vlfQfyoqk1xNWP9Qu",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12049,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11923,
+        "output_tokens": 94,
+        "total_tokens": 12143,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12049,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:05+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012049,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001490375,
+        "output_usd": 4.7e-05,
+        "total_usd": 0.002742275,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "document_index": 11,
+      "run_id": "run-20261018T195007-848d9f97",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:10.469534+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBQInHZifLjYHp32EzbnZXoXOs0",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11802,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11676,
+        "output_tokens": 28,
+        "total_tokens": 11830,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11802,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:08+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011802,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.0014595,
+        "output_usd": 1.4e-05,
+        "total_usd": 0.0026537,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p11_yorkst_quote.html",
+      "document_index": 11,
+      "run_id": "run-20261018T195007-848d9f97",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:12.458095+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBSOstvvDgcSoJ0T5K0FihUzj6N",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12000,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11874,
+        "output_tokens": 85,
+        "total_tokens": 12085,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12000,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:10+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.00148425,
+        "output_usd": 4.25e-05,
+        "total_usd": 0.00272675,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "document_index": 12,
+      "run_id": "run-20261018T195012-b8b5c0c1",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:14.476537+00:00",
+      "call_number": 1,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBVD638CVVeY1xdwT5cybVr4iph",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 11801,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11675,
+        "output_tokens": 27,
+        "total_tokens": 11828,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 11801,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:13+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0011801,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001459375,
+        "output_usd": 1.35e-05,
+        "total_usd": 0.002652975,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    },
+    {
+      "experiment_id": "p4-cache-20261018T194921Z",
+      "setup": "without_cache",
+      "document": "data/practice_docs/p12_bluehen_quote.pdf",
+      "document_index": 12,
+      "run_id": "run-20261018T195012-b8b5c0c1",
+      "run_status": "success",
+      "timestamp": "2026-10-18T19:50:16.662202+00:00",
+      "call_number": 2,
+      "model_name": "gpt-6-luna-2026-09-22",
+      "provider_name": "openai",
+      "provider_response_id": "chatcmpl-EaRBWu4Ktbo0noGuJgig9abTkTlHc",
+      "finish_reason": "tool_call",
+      "usage": {
+        "input_tokens": 12022,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 11896,
+        "output_tokens": 90,
+        "total_tokens": 12112,
+        "input_audio_tokens": 0,
+        "cache_audio_read_tokens": 0,
+        "output_audio_tokens": 0,
+        "details": {
+          "accepted_prediction_tokens": 0,
+          "audio_tokens": 0,
+          "reasoning_tokens": 0,
+          "rejected_prediction_tokens": 0
+        }
+      },
+      "uncached_input_tokens": 12022,
+      "provider_details": {
+        "finish_reason": "tool_calls",
+        "service_tier": "default",
+        "timestamp": "2026-10-18 19:50:14+00:00"
+      },
+      "cost_usd": {
+        "uncached_input_usd": 0.0012022,
+        "cached_input_usd": 0.0,
+        "cache_write_usd": 0.001487,
+        "output_usd": 4.5e-05,
+        "total_usd": 0.0027342,
+        "prices_source": "data/prices.json",
+        "prices_used": {
+          "input_per_1m": 0.1,
+          "cached_input_per_1m": 0.01,
+          "cache_write_per_1m": 0.125,
+          "output_per_1m": 0.5
+        }
+      }
+    }
+  ]
+}
