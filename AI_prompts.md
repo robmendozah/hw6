@@ -3169,16 +3169,401 @@ No follow-up needed.
 
 ---
 
-# Problem 10 — TBD
+# Problem 10 — Push to GitHub and Submit the URL
 
 ### First prompt
 
-TBD
+```
+Let's move forward with Problem 10 — Push to GitHub and Submit the URL.
+
+This is the final packaging and submission step for Homework 6.
+
+Do NOT change the agent's behavior, defenses, experimental results, or conclusions unless there is a genuine packaging/reproducibility bug.
+
+The goal is to create a PUBLIC GitHub repository that the graders can clone and run successfully.
+
+# 1. Audit the final repository structure
+
+Review the complete `hw6/` project and make sure all files required by the Problem 10 reference structure are present.
+
+At minimum, verify this structure:
+
+hw6/
+├── AI_prompts.md
+├── README.md
+├── .gitignore
+├── .env.example
+├── requirements.txt
+├── agent.py
+├── tools.py
+├── models.py
+├── prompts/
+│   └── prompt.md
+├── data/
+│   ├── shop_handbook.md
+│   ├── prices.json
+│   ├── practice_key.json
+│   ├── practice_docs/
+│   ├── exam_docs/
+│   └── my_attacks/
+└── output/
+    ├── handbook_estimate.md
+    ├── harness.md
+    ├── usage_log.json
+    ├── audit_trail.json
+    ├── trap_calls.json
+    ├── cache_test.json
+    ├── cache_test.md
+    ├── attack_results.json
+    ├── attack_results.md
+    ├── defense_results.json
+    ├── defense_results.md
+    ├── red_team.md
+    ├── exam_results.json
+    └── hw6_report.html
+
+The screenshot is the minimum expected submission structure.
+
+Do NOT delete additional Python files, logs, red-team evidence, or other legitimate implementation files merely to make the tree visually identical to the screenshot.
+
+However, remove clearly unnecessary machine-specific or temporary artifacts such as:
+
+- `__pycache__/`
+- `.pyc`
+- local virtual environments
+- editor files
+- temporary debug outputs
+- operating-system metadata
+
+# 2. Check `data/my_attacks/`
+
+The assignment expects the Problem 7 attack documents under:
+
+data/my_attacks/
+
+Inspect the final Problem 7 submission and make sure the attack files that represent the final two red-team attacks are present.
+
+If supplemental experiments created additional attack files, do not silently delete useful evidence, but make sure the two designated Problem 7 submission attacks are clearly identifiable and that the repository structure remains understandable to the grader.
+
+Do not modify the attack contents at this stage.
+
+# 3. Security audit — absolutely no real secrets
+
+This is critical.
+
+The real:
+
+.env
+
+must NOT be committed or pushed.
+
+Verify that `.gitignore` excludes at least:
+
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+and other obvious machine-specific files.
+
+Keep:
+
+.env.example
+
+in the repository.
+
+`.env.example` must contain placeholders only, for example:
+
+PORTKEY_API_KEY=your_key_here
+
+Do NOT put a real API key, GitHub token, password, or other credential in:
+
+- `.env.example`
+- source code
+- `AI_prompts.md`
+- logs
+- JSON outputs
+- Markdown outputs
+- audit trails
+- README
+- Git history
+
+Before committing, search the files that will be pushed for obvious secrets.
+
+Pay particular attention to:
+
+- PORTKEY_API_KEY
+- bearer/API tokens
+- GitHub credentials
+- `.env` contents
+
+If a real credential was ever committed into local Git history, STOP before pushing publicly and tell me exactly what needs to be sanitized.
+
+Do not merely delete the current file if the secret remains in Git history.
+
+# 4. Make paths portable
+
+Search the code and documentation for machine-specific absolute paths such as:
+
+C:\Users\...
+OneDrive\...
+/Users/...
+/home/...
+
+The grader will clone this project onto another machine.
+
+Runtime code must use project-relative paths or portable path resolution.
+
+Do not change legitimate historical text in `AI_prompts.md` solely because a prompt once mentioned my local path, but make sure the actual application does not depend on that path.
+
+# 5. Verify requirements.txt
+
+Make sure:
+
+requirements.txt
+
+contains the Python dependencies actually needed to run the agent.
+
+Do not add packages that are no longer used.
+
+Make sure it covers the final defended document-processing implementation, including any PDF/email/HTML parsing dependencies introduced in Problem 6.
+
+Do not include secrets or machine-specific paths.
+
+# 6. Finish README.md
+
+Keep README concise and practical.
+
+It should allow a grader to clone the repository and run the agent.
+
+Include:
+
+## Homework 6 — Vendor Desk Agent
+
+A short description of the project:
+
+- PydanticAI vendor-analysis agent
+- GPT-6-Luna
+- Campus Customs handbook
+- HTML/PDF/email document support
+- layered security defenses
+- usage/cost logging
+
+## Setup
+
+Example:
+
+1. Clone the repository.
+2. Create a Python virtual environment.
+3. Install:
+
+   pip install -r requirements.txt
+
+4. Copy:
+
+   .env.example
+
+   to:
+
+   .env
+
+5. Add the required API key.
+
+Do not include my real key.
+
+## Run the agent
+
+Document the ACTUAL working command.
+
+At minimum the grader should be able to run something equivalent to:
+
+python agent.py --doc data/practice_docs/p01_bluehen_quote.html
+
+If the final implementation requires the defended-mode flag, document the exact command.
+
+Also explain briefly how to run:
+
+- the normal/final defended mode;
+- the preserved undefended mode if relevant for reproducing Problem 7.
+
+Use the real CLI implemented in the project rather than inventing commands.
+
+## Important outputs
+
+Briefly point the grader to:
+
+- `output/cache_test.md`
+- `output/attack_results.md`
+- `output/defense_results.md`
+- `output/red_team.md`
+- `output/exam_results.json`
+- `output/hw6_report.html`
+
+Mention that `hw6_report.html` is the self-contained final results page from Problem 9.
+
+Do not make README excessively long.
+
+# 7. Reproducibility test
+
+Before GitHub submission, perform a final reproducibility check.
+
+Verify that:
+
+1. `python agent.py --doc data/practice_docs/p01_bluehen_quote.html`
+   or the actual documented equivalent works from the repository root.
+
+2. The program does not depend on my Windows/OneDrive path.
+
+3. `data/shop_handbook.md` loads correctly.
+
+4. The practice document loads correctly.
+
+5. The final defended mode starts successfully.
+
+6. The undefended mode remains available if documented.
+
+7. Required output directories/files are accessible.
+
+8. `output/hw6_report.html` opens independently by double-clicking.
+
+9. All imports are satisfied by `requirements.txt`.
+
+If practical, simulate the grader experience from a clean environment or clean project copy rather than relying only on the current development environment.
+
+Do not rerun or overwrite final experiment results unnecessarily during this packaging test.
+
+# 8. Validate required deliverables
+
+Before committing, confirm that the repository contains:
+
+## Root
+- `AI_prompts.md`
+- `README.md`
+- `.gitignore`
+- `.env.example`
+- `requirements.txt`
+- `agent.py`
+- `tools.py`
+- `models.py`
+- `prompts/prompt.md`
+
+## Data
+- `data/shop_handbook.md`
+- `data/prices.json`
+- `data/practice_key.json`
+- all 12 practice documents
+- all 10 exam documents
+- the Problem 7 attack documents
+
+## Output
+- `handbook_estimate.md`
+- `harness.md`
+- `usage_log.json`
+- `audit_trail.json`
+- `trap_calls.json`
+- `cache_test.json`
+- `cache_test.md`
+- `attack_results.json`
+- `attack_results.md`
+- `defense_results.json`
+- `defense_results.md`
+- `red_team.md`
+- `exam_results.json`
+- `hw6_report.html`
+
+Do not fabricate a missing result file.
+
+If something required is genuinely missing, tell me before pushing.
+
+# 9. Git audit before commit
+
+Inspect:
+
+git status
+
+and review every staged/untracked file.
+
+Verify `.env` is not tracked.
+
+Verify the entire `data/` folder required by the assignment IS tracked.
+
+Verify all required outputs ARE tracked.
+
+Do not commit:
+
+- real `.env`
+- API credentials
+- caches
+- virtual environments
+- temporary/debug artifacts
+
+Then create a clean final commit with a clear message such as:
+
+HW6 final submission
+
+# 10. Push to a PUBLIC GitHub repository
+
+Use my currently authenticated GitHub account if GitHub authentication is already available.
+
+Use an existing HW6 repository if this project is already correctly connected to one.
+
+Otherwise create an appropriately named repository, for example:
+
+hw6
+
+The repository MUST be PUBLIC.
+
+Do not create an unnecessary duplicate repository if one already exists.
+
+Push the complete final project.
+
+If an explicit GitHub authorization/login step from me is genuinely required, stop only at that authentication step and tell me exactly what I need to authorize.
+
+Do NOT ask me to paste a GitHub token into source code or chat-visible project files.
+
+# 11. Verify the public repository
+
+After pushing, verify:
+
+1. The repository exists.
+2. Visibility is PUBLIC.
+3. The latest final commit is present.
+4. The grader can access the repository URL without my credentials.
+5. `.env` is NOT visible.
+6. `.env.example` IS visible.
+7. The complete `data/` folder is visible.
+8. All 12 practice docs are present.
+9. All 10 exam docs are present.
+10. The required attack documents are present.
+11. All required output files are present.
+12. `output/hw6_report.html` is present.
+13. README contains working run instructions.
+
+# 12. Final response
+
+Once everything is successfully pushed and verified, give me:
+
+- the public GitHub repository URL;
+- confirmation that it is public;
+- confirmation that `.env` was not pushed;
+- confirmation that `.env.example` was pushed;
+- confirmation that the complete required `data/` folder is present;
+- confirmation that all required output deliverables are present;
+- confirmation that the README contains tested instructions for running the agent.
+
+I will submit that repository URL to Canvas.
+
+Proceed directly with the repository audit, security check, reproducibility check, commit, push, and public verification.
+
+Do not change the actual homework results merely to make the submission cleaner.
+```
 
 ### What was lacking
 
-TBD
+The prompt covered secrets, paths and dependencies but not line-ending normalization, which would have silently corrupted every PDF and `.eml` fixture on a Linux or macOS clone until a `.gitattributes` marking them binary was added.
 
 ### Follow-up prompt
 
-TBD
+No follow-up needed.
