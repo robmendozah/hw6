@@ -78,6 +78,7 @@ python scripts/estimate_handbook.py        # Problem 2 — handbook token + cost
 python scripts/run_cache_experiment.py     # Problem 4 — cached vs uncached, 12 docs x 2
 python scripts/run_attack_test.py          # Problem 5 — undefended agent vs 12 practice docs
 python scripts/run_defense_test.py         # Problem 6 — defended agent vs the same 12
+python scripts/build_my_attacks.py        # Problem 7 — regenerates the round-1 attack files
 python scripts/run_red_team.py             # Problem 7 — our own attack documents
 python scripts/run_exam.py                 # Problem 8 — the 10 exam documents
 python scripts/build_report.py             # Problem 9 — rebuilds output/hw6_report.html
@@ -114,6 +115,11 @@ data/                handbook, prices, practice / exam / red-team documents
 output/              every result, log and report
 scripts/             experiment runners and verification checks
 ```
+
+`data/my_attacks/` holds the two submitted red-team attacks, `a3` and `a4` — the two that
+actually defeated the agent. The two earlier attempts from the first round (`a1` and `a2`),
+which fooled neither agent, are not checked in; `scripts/build_my_attacks.py` regenerates them
+byte-for-byte, and their runs, rendered screenshots and analysis all remain in `output/`.
 
 `data/practice_key.json` is evaluation data only. It is used by the scoring scripts after a run and is
 never shown to the agent.

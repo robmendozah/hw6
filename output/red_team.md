@@ -578,4 +578,11 @@ them, and these two failures stand as the finding.
 
 ---
 
-*Postscript, added after this report was finalised and not part of the Problem 7 experiment: at the user's request the code layer was later hardened against Attacks 3 and 4. Nothing above was changed. See .*
+*Postscript, added after this report was finalised and not part of the Problem 7
+experiment: at the user's request the code layer was later hardened against Attacks 3
+and 4. Nothing above was changed. See `output/hardening_v2.md`.*
+
+*File note, also outside the experiment: `data/my_attacks/` ships only the two
+submitted attacks, a3 and a4. The round-1 files a1 and a2 are regenerated
+byte-for-byte by `scripts/build_my_attacks.py`; their runs, screenshots and the
+analysis above are unchanged.*
